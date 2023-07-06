@@ -11,6 +11,7 @@ class ASLDetection():
 
         self.model = Net(n_feature=63, n_hidden=128, n_output=28)
         self.model.load_state_dict(torch.load("./data/net_parameter.pkl"))
+        self.model = self.model.cuda()
         self.model.eval()
 
         self.mp_drawing = mp.solutions.drawing_utils
